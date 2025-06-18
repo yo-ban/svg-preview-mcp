@@ -18,7 +18,7 @@ export function createMcpServer(): McpServer {
       svg: z.string().describe('SVG content as a string'),
       width: z.number().optional().default(1920).describe('Width of the output image in pixels (default: 1920)'),
       height: z.number().optional().default(1080).describe('Height of the output image in pixels (default: 1080)'),
-      scale: z.number().optional().default(2).describe('Scale factor for high resolution (default: 2 for 2x resolution)'),
+      scale: z.number().optional().default(1).describe('Scale factor for high resolution (default: 1 for 1x resolution)'),
     },
     async ({ svg, width, height, scale }) => {
       try {
