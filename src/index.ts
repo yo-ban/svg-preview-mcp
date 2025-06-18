@@ -1,7 +1,7 @@
 import { createMcpServer } from './mcp-server.js';
 import { createStreamableHttpServer } from './streamable-http-server.js';
 
-const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3005;
+const port = process.env.PORT || process.argv[2] || "3002";
 
 async function main() {
   console.log('Starting SVG Preview MCP Server...');
@@ -10,7 +10,7 @@ async function main() {
   const mcpServer = createMcpServer();
   
   // Create and start HTTP server
-  createStreamableHttpServer(mcpServer, PORT);
+  createStreamableHttpServer(mcpServer, parseInt(port));
 }
 
 main().catch((error) => {
